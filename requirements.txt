@@ -1,0 +1,18 @@
+# Requirements for Chinese model fine-tuning on CPU
+
+# Core dependencies
+torch>=2.1.0
+transformers>=4.40.0
+datasets>=2.18.0
+accelerate>=0.27.0
+peft>=0.10.0
+trl>=0.8.0
+bitsandbytes>=0.43.0  # For quantization (optional on CPU)
+
+# Chinese model support
+sentencepiece>=0.2.0
+tiktoken>=0.6.0  # For Qwen tokenizer
+
+# Utilities
+tqdm>=4.66.0
+safetensors>=0.4.0

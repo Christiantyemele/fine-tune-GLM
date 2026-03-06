@@ -1,0 +1,44 @@
+[package]
+name = "neurax-inference"
+version = "0.1.0"
+edition = "2021"
+description = "Rust inference for fine-tuned Neurax agent using Candle"
+authors = ["Neurax Team"]
+
+[dependencies]
+candle-core = { version = "0.6", features = ["cuda"] }
+candle-nn = { version = "0.6", features = ["cuda"] }
+candle-transformers = { version = "0.6", features = ["cuda"] }
+candle-flash-attn = { version = "0.6", optional = true }
+
+# Tokenizer support
+tokenizers = { version = "0.15", features = ["onig"] }
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+safetensors = "0.4"
+
+# CLI
+clap = { version = "4.4", features = ["derive"] }
+
+# Utilities
+anyhow = "1.0"
+thiserror = "1.0"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+hf-hub = "0.3"
+
+[features]
+default = ["cpu"]
+cpu = ["candle-core/default", "candle-nn/default", "candle-transformers/default"]
+cuda = ["candle-core/cuda", "candle-nn/cuda", "candle-transformers/cuda"]
+flash-attn = ["candle-flash-attn"]
+
+[[bin]]
+name = "neurax-inference"
+path = "src/main.rs"
+
+[profile.release]
+opt-level = 3
+lto = true
