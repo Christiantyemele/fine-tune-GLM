@@ -199,7 +199,7 @@ def main():
         optim="adamw_torch",  # CPU-compatible optimizer
         push_to_hub=False,
         dataset_text_field="text",
-        max_seq_length=args.max_seq_length,
+        max_length=args.max_seq_length,  # SFTConfig uses max_length, not max_seq_length
     )
     
     # Create trainer with SFTConfig
