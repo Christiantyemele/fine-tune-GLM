@@ -4,8 +4,8 @@
 
 set -e
 
-# Default model - Qwen 3B (already cached on this system)
-# Note: Disk is full, using cached model
+# Default model - Qwen 3B (ALREADY CACHED - 5.8GB complete)
+# Do NOT change to 1.5B - it's not cached and downloads are slow
 MODEL="${1:-Qwen/Qwen2.5-3B-Instruct}"
 
 # Alternative models (may need download):

@@ -171,7 +171,11 @@ def main():
     if valid_dataset:
         valid_dataset = valid_dataset.map(formatting_func)
     
-    # Training arguments - Use SFTConfig for TRL compatibility
+    # Training arguments - Optimized for CPU speed
+    # Key optimizations:
+    # - No gradient checkpointing (faster, uses more RAM)
+    # - No eval during training (saves time)
+    # - Fewer save steps (less I/O)
     training_args = SFTConfig(
         output_dir=args.output,
         per_device_train_batch_size=args.batch_size,
@@ -182,24 +186,24 @@ def main():
         weight_decay=0.01,
         lr_scheduler_type="cosine",
         warmup_ratio=0.1,
-        logging_steps=10,
-        save_steps=100,
-        save_total_limit=3,
-        eval_strategy="steps" if valid_dataset else "no",
-        eval_steps=50 if valid_dataset else None,
-        load_best_model_at_end=True if valid_dataset else False,
-        metric_for_best_model="eval_loss",
+        logging_steps=1,  # Log every step for progress visibility
+        save_steps=500,  # Save less frequently
+        save_total_limit=1,  # Keep only 1 checkpoint
+        eval_strategy="no",  # Skip eval during training for speed
+        eval_steps=None,
+        load_best_model_at_end=False,
+        metric_for_best_model=None,
         greater_is_better=False,
         report_to="none",
         use_cpu=args.use_cpu,
         dataloader_num_workers=0,  # CPU training
         fp16=not args.use_cpu,
         bf16=False,
-        gradient_checkpointing=True,  # Save memory
+        gradient_checkpointing=False,  # DISABLE for speed (uses more RAM but 2-3x faster)
         optim="adamw_torch",  # CPU-compatible optimizer
         push_to_hub=False,
         dataset_text_field="text",
-        max_length=args.max_seq_length,  # SFTConfig uses max_length, not max_seq_length
+        max_length=args.max_seq_length,
     )
     
     # Create trainer with SFTConfig

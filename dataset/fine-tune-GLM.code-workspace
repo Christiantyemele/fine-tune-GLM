@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../RustroverProjects/Universal_Neurax/neurax-agent/dataset"
+		}
+	],
+	"settings": {}
+}
