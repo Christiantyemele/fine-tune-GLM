@@ -4,6 +4,8 @@ Fine-tune Chinese reasoning model (Qwen/GLM) on CPU with LoRA.
 
 Uses 4-bit quantization for memory efficiency.
 
+Last updated: 2026-03-12
+
 Usage:
   python train_chinese_model.py \
     --train ./dataset/neurax_train.jsonl \

@@ -1,5 +1,7 @@
 # Neurax Agent Rust Inference
 
+<!-- Last updated: 2026-03-12 -->
+
 Rust inference engine for the fine-tuned Neurax agent using [Candle](https://github.com/huggingface/candle).
 
 ## Prerequisites

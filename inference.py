@@ -2,6 +2,8 @@
 """
 Inference script for fine-tuned Neurax agent.
 
+Last updated: 2026-03-12
+
 Usage:
   python inference.py --adapter ./neurax-lora
   python inference.py --adapter ./neurax-lora --model Qwen/Qwen2.5-3B-Instruct

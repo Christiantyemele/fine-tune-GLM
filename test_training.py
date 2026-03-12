@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Minimal test to diagnose training issues."""
+"""Minimal test to diagnose training issues.
+
+Last updated: 2026-03-12
+"""
 
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """
 Simple LoRA training without SFTTrainer - uses basic PyTorch loop.
+
+Last updated: 2026-03-12
 """
 
 import argparse

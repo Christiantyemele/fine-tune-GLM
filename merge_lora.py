@@ -2,6 +2,8 @@
 """
 Merge LoRA adapter with base model for Rust inference.
 
+Last updated: 2026-03-12
+
 Since Candle doesn't support LoRA merging directly, use this script
 to merge the adapter weights into the base model, then load the merged
 model in Rust.

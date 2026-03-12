@@ -1,5 +1,6 @@
 #!/bin/bash
 # Launch script for Neurax agent fine-tuning
+# Last updated: 2026-03-12
 # Usage: ./run_training.sh [model_name]
 
 set -e

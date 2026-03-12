@@ -1,5 +1,7 @@
 # Fine-Tuning vs RAG: A Comprehensive Comparison
 
+<!-- Last updated: 2026-03-12 -->
+
 ## Presentation Outline
 
 ---
